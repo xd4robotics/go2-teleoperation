@@ -2,6 +2,10 @@
 
 Painel web para teleoperação do Unitree Go2 EDU com Jetson Orin NX.
 
+## Acessar o painel
+
+[Abrir Go2 Teleoperation](https://go2-primary-control.vercel.app)
+
 ## Recursos
 
 - vídeo e áudio em tempo real;
