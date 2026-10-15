@@ -1,0 +1,331 @@
+.panel{min-width:0;min-height:0;padding:10px 9px;overflow:auto;color:var(--telemetry-text);background:var(--panel-metal);border:1px solid var(--border-color);border-radius:2px;box-shadow:var(--panel-shadow);scrollbar-width:thin}.heading{display:flex;align-items:center;justify-content:space-between;height:28px;padding-bottom:7px;color:var(--neon-primary);border-bottom:1px solid var(--border-color);font-size:11px;font-weight:800;letter-spacing:.13em}.heading span:before{display:inline-block;width:3px;height:11px;margin-right:6px;content:"";background:var(--neon-secondary);box-shadow:0 0 8px var(--neon-secondary)}.heading b{color:var(--neon-secondary);font-size:9px}.heading i{display:inline-block;width:5px;height:5px;margin-right:4px;background:var(--success);border-radius:50%;box-shadow:0 0 8px var(--success)}
+.onlineCard{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:7px;padding:10px 3px;border-bottom:1px solid var(--border-color)}.onlineCard>span{display:grid;place-items:center;width:31px;height:31px;border:1px solid currentColor}.onlineCard>span i{width:10px;height:10px;background:currentColor;border-radius:50%;box-shadow:0 0 12px currentColor;animation:pulse 1.5s infinite}.onlineCard>div{display:grid;gap:2px}.onlineCard small,.onlineCard em{font-size:7px;font-style:normal;font-weight:700}.onlineCard strong{font-size:11px}.onlineCard em{font-size:6px}.onlineCard code{font-size:8px}.online{color:var(--success)}.offline{color:var(--neon-secondary)}
+.energy,.temperature,.docking,.vector{padding:9px 3px;border-bottom:1px solid var(--border-color)}.energy>header,.temperature>div:first-child{display:flex;align-items:center;gap:6px}.energy>header span,.temperature>div span{color:var(--neon-secondary);font-size:7px;font-weight:700}.energyValues{display:grid;grid-template-columns:1fr 1.35fr;margin:8px 0 6px}.energyValues p{display:grid;gap:2px;margin:0;padding:0 5px}.energyValues p+p{border-left:1px solid var(--border-color)}.energyValues small{color:var(--telemetry-secondary);font-size:7px;font-weight:700}.energyValues b{color:var(--neon-primary);font-size:13px}.energy footer{display:flex;justify-content:space-between;color:var(--telemetry-secondary);font-size:6px;font-weight:700}.energy footer b{color:var(--success)}
+.meter{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:2px;height:10px;margin:5px 0;overflow:hidden;background:var(--card-background-muted);border:1px solid var(--border-color)}.meter>i{position:absolute;inset:1px auto 1px 1px;background:linear-gradient(90deg,rgba(var(--neon-primary-rgb),.35),var(--neon-primary));box-shadow:0 0 10px var(--neon-primary)}.meter>i.red{background:var(--neon-secondary);box-shadow:0 0 10px var(--neon-secondary)}.meter>i.green{background:var(--success);box-shadow:0 0 10px var(--success)}.meter span{position:relative;border-right:1px solid var(--card-background)}
+.temperature{position:relative}.temperature>div{padding-right:55px}.temperature>b{position:absolute;right:3px;top:8px;font-size:14px}.temperature small{font-size:6px;font-weight:800}.stable>b,.stable small{color:var(--success)}.hot>b,.hot small{color:var(--neon-secondary);animation:hotBlink .7s steps(2) infinite}
+.docking header{display:grid;grid-template-columns:29px 1fr 8px;align-items:center;gap:6px}.docking header>span{display:grid;place-items:center;width:27px;height:27px;color:var(--neon-primary);border:1px solid var(--neon-primary)}.docking header>div{display:grid;gap:2px}.docking header small{color:var(--telemetry-secondary);font-size:7px}.docking header strong{font-size:9px}.docking header>i{width:7px;height:7px;background:var(--neon-secondary);border-radius:50%;box-shadow:0 0 7px var(--neon-secondary)}.docking header>i.dockReady{background:var(--success);box-shadow:0 0 7px var(--success)}.docking>div{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin:7px 0 4px}.docking button{min-height:28px;padding:3px;color:var(--neon-primary);background:var(--card-background-muted);border:1px solid rgba(var(--neon-primary-rgb),.35);font-size:7px;font-weight:800;cursor:pointer}.docking button:hover{color:#fff;background:var(--neon-primary)}.docking>small{color:var(--telemetry-secondary);font-size:6px;font-weight:700}
+.audio{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:7px;width:100%;padding:8px 3px;color:var(--telemetry-text);text-align:left;background:linear-gradient(90deg,rgba(var(--neon-primary-rgb),.04),transparent);border-bottom:1px solid var(--border-color);cursor:pointer}.audioCore{position:relative;display:flex;align-items:center;justify-content:center;gap:2px;width:31px;height:31px;color:var(--neon-primary);background:radial-gradient(circle,rgba(var(--neon-primary-rgb),.2),transparent 68%);border:1px solid currentColor;border-radius:50%;box-shadow:inset 0 0 9px rgba(var(--neon-primary-rgb),.28),0 0 7px rgba(var(--neon-primary-rgb),.22)}.audioCore:before,.audioCore:after{position:absolute;content:"";border:1px solid currentColor;border-radius:50%;opacity:.28}.audioCore:before{inset:4px}.audioCore:after{inset:-3px;border-style:dashed;animation:audioOrbit 5s linear infinite}.audioCore i{position:relative;z-index:2;width:2px;height:8px;background:currentColor;box-shadow:0 0 5px currentColor}.audioCore i:nth-child(2){height:15px}.audio p{display:grid;gap:2px;margin:0}.audio strong{font-size:9px}.audio small{color:var(--telemetry-secondary);font-size:7px}.audio>b{color:var(--neon-primary);font-size:7px}.audio.calling{background:linear-gradient(90deg,rgba(var(--success-rgb),.14),transparent)}.audio.calling .audioCore{color:var(--success);box-shadow:inset 0 0 10px rgba(var(--success-rgb),.35),0 0 13px rgba(var(--success-rgb),.55)}.audio.calling .audioCore i{animation:voiceWave .7s ease-in-out infinite alternate}.audio.calling .audioCore i:nth-child(2){animation-delay:.2s}.audio.calling .audioCore i:nth-child(3){animation-delay:.4s}.audio.calling>b{color:var(--neon-secondary)}
+.vector header{display:flex;justify-content:space-between;color:var(--neon-primary);font-size:9px;font-weight:800}.vector header b{color:var(--neon-secondary)}.vectorGrid{display:grid;grid-template-columns:repeat(3,1fr);margin:6px 0;border:1px solid var(--border-color)}.vectorGrid span{display:grid;gap:2px;padding:4px;text-align:center;color:var(--telemetry-secondary);font-size:7px}.vectorGrid span+span{border-left:1px solid var(--border-color)}.vectorGrid b{color:var(--telemetry-text);font-size:9px}.motion{display:grid;grid-template-columns:1fr 1fr;gap:3px}.motion p{display:grid;gap:2px;margin:0;padding:5px;background:var(--card-background-muted)}.motion small{color:var(--telemetry-secondary);font-size:6px}.motion b{font-size:9px}
+.compass{position:relative;width:66px;height:66px;margin:4px auto 6px;background:linear-gradient(90deg,transparent 49%,var(--border-color) 50%,transparent 51%),linear-gradient(transparent 49%,var(--border-color) 50%,transparent 51%);border:1px solid var(--border-color);border-radius:50%;box-shadow:inset 0 0 18px rgba(var(--neon-primary-rgb),.1),0 0 10px rgba(var(--neon-primary-rgb),.08)}.compass:after{position:absolute;inset:10px;content:"";border:1px dashed rgba(var(--neon-primary-rgb),.35);border-radius:50%}.compass>i{position:absolute;z-index:2;top:50%;left:50%;width:2px;height:25px;background:linear-gradient(var(--neon-secondary) 0 48%,var(--neon-primary) 48%);filter:var(--neon-red-glow);transform-origin:center;transition:transform .35s}.compass>b{position:absolute;z-index:3;top:50%;left:50%;display:grid;place-items:center;width:24px;height:24px;color:var(--telemetry-text);background:var(--card-background-strong);border:1px solid var(--neon-primary);border-radius:50%;font-size:7px;transform:translate(-50%,-50%)}.compass>span{position:absolute;color:var(--telemetry-secondary);font-size:6px;font-weight:800}.compass>span:nth-of-type(1){top:2px;left:50%;transform:translateX(-50%)}.compass>span:nth-of-type(2){top:50%;right:3px;transform:translateY(-50%)}.compass>span:nth-of-type(3){bottom:2px;left:50%;transform:translateX(-50%)}.compass>span:nth-of-type(4){top:50%;left:3px;transform:translateY(-50%)}
+.telemetryFeedback{padding:6px 3px;color:var(--text-muted);font-size:6px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}@keyframes hotBlink{50%{filter:brightness(1.8)}}@keyframes audioOrbit{to{transform:rotate(360deg)}}@keyframes voiceWave{to{height:4px;opacity:.45}}
+@media(max-height:800px){.energy,.temperature,.docking,.vector{padding:6px 3px}.audio{padding:5px 3px}.telemetryFeedback{display:none}}
+
+/* Escala ergonômica e linguagem uniforme dos cards operacionais. */
+.onlineCard,
+.energy,
+.temperature,
+.docking,
+.audio,
+.vector {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
+
+.energyValues {
+  margin: 10px 0 8px;
+}
+
+.energyValues p {
+  gap: 4px;
+  padding: 0 6px;
+}
+
+.energyValues p + p {
+  text-align: right;
+}
+
+.energyValues small {
+  font-size: 8px;
+}
+
+.energyValues b {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.temperature > div {
+  padding-right: 78px;
+}
+
+.temperature > b {
+  top: 10px;
+  right: 10px;
+  min-width: 65px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.temperature small {
+  font-size: 7px;
+}
+
+.docking > div {
+  gap: 6px;
+  margin: 10px 0 6px;
+}
+
+.docking button {
+  min-height: 38px;
+  padding: 6px;
+  font-size: 8px;
+}
+
+.audio {
+  grid-template-columns: 29px minmax(0, 1fr) auto;
+  gap: 9px;
+  min-height: 64px;
+  text-align: left;
+}
+
+.audioCore {
+  width: 25px;
+  height: 25px;
+  box-shadow: inset 0 0 7px rgba(var(--neon-primary-rgb), .25);
+}
+
+.audioCore i {
+  height: 7px;
+}
+
+.audioCore i:nth-child(2) {
+  height: 12px;
+}
+
+.audio strong {
+  font-size: 10px;
+}
+
+.audio small,
+.audio > b {
+  font-size: 8px;
+}
+
+@media(max-height:900px) {
+  .onlineCard,
+  .energy,
+  .temperature,
+  .docking,
+  .audio,
+  .vector {
+    padding: 10px 8px;
+  }
+}
+
+.onlineCard strong::before{display:inline-block;width:6px;height:6px;margin-right:6px;content:"";vertical-align:1px;background:currentColor;border-radius:50%;box-shadow:0 0 8px currentColor;animation:telemetryLed 1.8s ease-in-out infinite}
+.jointMonitor{width:100%;margin-top:8px;padding:10px;background:rgba(255,255,255,.055);border:1px solid var(--border-color);border-radius:2px}.jointMonitor>header{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px}.jointMonitor header span{color:var(--neon-secondary);font-size:7px;font-weight:800}.jointMonitor header b{color:var(--neon-primary);font-size:7px}.jointMonitor>div{display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;margin-top:9px}.jointMonitor p{display:grid;grid-template-columns:17px 1fr 22px;align-items:center;gap:5px;margin:0}.jointMonitor p>span,.jointMonitor p>em{color:var(--telemetry-secondary);font-size:7px;font-style:normal;font-weight:800}.jointMonitor p>em{text-align:right}.jointMonitor p>i{height:3px;overflow:hidden;background:var(--border-color)}.jointMonitor p>i b{display:block;height:100%;background:var(--neon-primary);box-shadow:0 0 7px var(--neon-primary);transition:width .35s ease}
+.imuScope{margin:6px 0;padding:6px;background:rgba(var(--neon-primary-rgb),.035);border:1px solid var(--border-soft)}.imuScope header{display:flex;justify-content:space-between;color:var(--telemetry-secondary);font-size:7px}.imuScope header b{color:var(--success);font-size:7px}.imuScope svg{display:block;width:100%;height:45px;margin:4px 0;background:linear-gradient(90deg,rgba(var(--neon-primary-rgb),.025),rgba(var(--neon-primary-rgb),.07),rgba(var(--neon-primary-rgb),.025))}.imuScope svg path{fill:none;vector-effect:non-scaling-stroke}.scopeGrid{stroke:rgba(var(--neon-primary-rgb),.14);stroke-width:.6}.rollWave,.pitchWave{stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5 2;animation:scopeFlow 1.4s linear infinite}.rollWave{stroke:var(--neon-primary);filter:drop-shadow(0 0 2px var(--neon-primary))}.pitchWave{stroke:var(--neon-secondary);filter:drop-shadow(0 0 2px var(--neon-secondary));animation-duration:1.8s}.imuScope footer{display:flex;justify-content:space-between;font-size:6px}.imuScope footer span{color:var(--telemetry-secondary)}.imuScope footer i{display:inline-block;width:5px;height:2px;margin-right:3px;background:var(--neon-primary)}.imuScope footer span+span i{background:var(--neon-secondary)}.imuScope footer b{color:var(--telemetry-text)}
+@keyframes telemetryLed{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 7px currentColor}50%{opacity:.3;transform:scale(.68);box-shadow:0 0 14px currentColor}}@keyframes scopeFlow{to{stroke-dashoffset:-28}}
+
+/* Scroll técnico independente: invisível em repouso, fino no hover. */
+.panel{max-height:calc(100vh - 304px);overflow-y:auto;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:rgba(var(--neon-primary-rgb),.22) transparent}.panel::-webkit-scrollbar{width:4px}.panel::-webkit-scrollbar-track{background:transparent}.panel::-webkit-scrollbar-thumb{background:rgba(var(--neon-primary-rgb),.22);border-radius:4px}.panel:hover::-webkit-scrollbar-thumb{background:rgba(var(--neon-primary-rgb),.38)}
+.jointMonitor,.audio,.vector{margin-top:14px}.jointMonitor{padding:13px 11px}.jointMonitor>div{margin-top:12px;gap:10px 12px}.audio{padding:14px 12px}.vector{padding:13px 11px}.imuScope{margin:10px 0;padding:8px}
+
+/* Cada leitura ocupa sua própria linha; nenhum valor flutua sobre os medidores. */
+.energy,
+.temperature,
+.docking,
+.jointMonitor,
+.audio,
+.vector {
+  padding: 15px 13px;
+}
+
+.temperature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px 14px;
+}
+
+.temperature > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding-right: 0;
+}
+
+.temperature > b {
+  position: static;
+  min-width: 64px;
+  padding: 3px 0;
+  text-align: right;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.temperature > .meter {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 1px 0 0;
+}
+
+.temperature > small {
+  grid-column: 1 / -1;
+  display: block;
+  padding-top: 1px;
+  line-height: 1.4;
+}
+
+.energy {
+  display: grid;
+  gap: 10px;
+}
+
+.energyValues {
+  margin: 1px 0;
+}
+
+.energyValues p {
+  min-width: 0;
+}
+
+.energyValues b {
+  overflow-wrap: anywhere;
+  white-space: normal;
+  line-height: 1.15;
+}
+
+.docking {
+  display: grid;
+  gap: 10px;
+}
+
+.docking > div {
+  margin: 0;
+}
+
+.jointMonitor {
+  display: grid;
+  gap: 12px;
+}
+
+.jointMonitor > div {
+  margin-top: 0;
+}
+
+.vector {
+  display: grid;
+  gap: 9px;
+}
+
+.vectorGrid,
+.imuScope {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Tipografia operacional ampliada sem alterar a hierarquia dos números. */
+.onlineCard small,
+.onlineCard em {
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+.onlineCard strong {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.onlineCard code {
+  font-size: 9px;
+}
+
+.energy > header span,
+.temperature > div span,
+.jointMonitor header span {
+  font-size: 9px;
+}
+
+.energy > header strong,
+.temperature > div strong,
+.jointMonitor header strong {
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.energyValues small {
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+.energy footer,
+.energy footer code,
+.temperature > small,
+.docking > small {
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+.docking header small {
+  font-size: 9px;
+}
+
+.docking header strong {
+  font-size: 11px;
+}
+
+.docking button {
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.jointMonitor header b {
+  font-size: 8px;
+}
+
+.jointMonitor p > span,
+.jointMonitor p > em {
+  font-size: 8px;
+}
+
+.audio strong {
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.audio small,
+.audio > b {
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+.vector > header,
+.vector > header b {
+  font-size: 10px;
+}
+
+.vectorGrid span {
+  font-size: 8px;
+}
+
+.vectorGrid b,
+.motion b {
+  font-size: 10px;
+}
+
+.motion small,
+.imuScope header,
+.imuScope header b {
+  font-size: 8px;
+}
+
+.imuScope footer {
+  font-size: 7px;
+}
+
+/* Azul textual de alto contraste para cards sobre o painel claro. */
+.heading,
+.energyValues b,
+.docking button,
+.audio > b,
+.vector > header,
+.jointMonitor header b {
+  color: var(--blue-text-accessible);
+}
+@media (max-width:900px) and (orientation:portrait){.panel{max-height:none;padding:14px 12px;overflow:visible}.onlineCard,.energy,.temperature,.docking,.jointMonitor,.audio,.vector{padding:16px 14px}.docking button,.audio{min-height:44px}.energyValues b{font-size:17px}.temperature>b{font-size:20px}.compass{width:82px;height:82px}.imuScope svg{height:58px}}
+@media (min-width:901px) and (max-width:1100px) and (orientation:portrait){.panel{max-height:none;padding:14px 12px;overflow:visible}.energy,.temperature,.docking,.jointMonitor,.audio,.vector{padding:16px 14px}.docking button,.audio{min-height:44px}.compass{width:82px;height:82px}.imuScope svg{height:58px}}

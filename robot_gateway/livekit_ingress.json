@@ -1,0 +1,8 @@
+{
+  "input_type": 0,
+  "name": "go2-front-camera",
+  "room_name": "go2-primary",
+  "participant_identity": "go2-camera",
+  "participant_name": "Câmera frontal Go2",
+  "enable_transcoding": true
+}

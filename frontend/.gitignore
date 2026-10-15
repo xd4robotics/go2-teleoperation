@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Production builds and reports
+dist/
+coverage/
+
+# Environment files (keep the public template)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local browser, image-processing, and visual-test artifacts
+/.chrome-*/
+/login-*.png
+/tab-*.png
+/tmp/
+
+# Editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Vite/local tooling caches
+.vite/
+*.local
+.vercel
+
+# Mantém o modelo público e ignora somente configurações reais
+!.env.example

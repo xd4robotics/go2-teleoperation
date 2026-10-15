@@ -1,0 +1,574 @@
+.deck {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.95fr) minmax(500px, 1.15fr) minmax(250px, 0.95fr);
+  align-items: center;
+  gap: 18px;
+  min-height: 178px;
+  padding: 10px 24px;
+  color: var(--monitor-muted);
+  background: linear-gradient(180deg, #121d2e, #07101d);
+  border: 1px solid var(--monitor-border);
+  border-radius: 4px;
+  box-shadow: var(--panel-shadow);
+}
+
+.joystickUnit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leftJoystick {
+  justify-self: end;
+}
+
+.rightJoystick {
+  justify-self: start;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.joystickCopy {
+  display: grid;
+  gap: 5px;
+}
+
+.joystickCopy strong {
+  color: var(--monitor-text);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.joystickCopy small {
+  max-width: 96px;
+  color: var(--monitor-muted);
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
+}
+
+.joystick {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  flex: none;
+  touch-action: none;
+  background: radial-gradient(circle, #18304b 0 12%, #0a1728 13% 43%, #24435f 44% 47%, #050d18 48%);
+  border: 2px solid #3c5d78;
+  border-radius: 50%;
+  box-shadow: inset 0 0 24px #000, 0 0 20px rgba(var(--neon-primary-rgb), 0.2);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.joystick::before {
+  position: absolute;
+  inset: 9px;
+  content: "";
+  border: 1px dashed rgba(var(--neon-primary-rgb), 0.38);
+  border-radius: 50%;
+}
+
+.joystick > i {
+  position: absolute;
+  top: 50%;
+  left: 9%;
+  width: 82%;
+  height: 1px;
+  background: rgba(var(--neon-primary-rgb), 0.24);
+}
+
+.joystick > i:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.joystick > b {
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 18px);
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(circle at 35% 30%, #a8d1f4, #285478 38%, #07101d 72%);
+  border: 2px solid var(--neon-primary);
+  border-radius: 50%;
+  box-shadow:
+    0 0 12px rgba(var(--neon-primary-rgb), 0.48),
+    0 0 24px rgba(var(--neon-primary-rgb), 0.16),
+    inset 0 0 8px rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+  transition: transform 0.05s;
+}
+
+.joystickActive {
+  border-color: var(--neon-primary);
+  box-shadow: inset 0 0 24px #000, 0 0 22px rgba(var(--neon-primary-rgb), 0.46);
+}
+
+.joystickActive > b {
+  box-shadow:
+    0 0 18px var(--neon-primary),
+    0 0 38px rgba(var(--neon-primary-rgb), 0.52),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.18);
+}
+
+.disabled {
+  opacity: 0.42;
+}
+
+.disabled .joystick {
+  cursor: not-allowed;
+}
+
+.centerConsole {
+  display: grid;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 580px;
+  justify-self: center;
+}
+
+.mediaRail {
+  display: grid;
+  grid-template-columns: 145px 1fr 1fr;
+  gap: 8px;
+}
+
+.mediaRail > span {
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 0 11px;
+  background: rgba(2, 8, 16, 0.38);
+  border: 1px solid var(--monitor-border);
+}
+
+.mediaRail small {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.mediaRail span b {
+  color: var(--monitor-text);
+  font-size: 15px;
+}
+
+.mediaRail button {
+  display: grid;
+  grid-template-columns: 29px 1fr;
+  align-items: center;
+  min-height: 42px;
+  padding: 5px 9px;
+  color: var(--monitor-text);
+  background: linear-gradient(180deg, #17263a, #0b1422);
+  border: 1px solid #466079;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.mediaRail button i {
+  color: var(--neon-primary);
+  font-size: 20px;
+  font-style: normal;
+}
+
+.mediaRail button:hover {
+  color: #fff;
+  border-color: var(--neon-primary);
+  box-shadow: 0 0 12px rgba(var(--neon-primary-rgb), 0.25);
+}
+
+.missionLive {
+  border-color: rgba(var(--success-rgb), 0.5);
+  box-shadow: inset 3px 0 var(--success);
+}
+
+.missionLive small {
+  color: var(--success);
+}
+
+.speedBlock {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 6px 12px;
+  background: rgba(var(--neon-primary-rgb), 0.035);
+  border: 1px solid var(--monitor-border);
+}
+
+.speedBlock > span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.speedBlock > div {
+  display: grid;
+  grid-template-columns: 42px 82px 42px;
+  align-items: center;
+  gap: 6px;
+  grid-row: 1 / 4;
+  grid-column: 2;
+}
+
+.speedBlock button {
+  height: 42px;
+  color: var(--monitor-text);
+  background: #0b1726;
+  border: 1px solid #466079;
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.speedBlock button:hover {
+  color: #fff;
+  background: var(--neon-primary);
+  border-color: var(--neon-primary);
+}
+
+.speedBlock strong {
+  color: var(--neon-primary);
+  text-align: center;
+  font-size: 25px;
+  filter: var(--neon-blue-glow);
+}
+
+.speedBlock > i {
+  height: 6px;
+  background: var(--monitor-border);
+}
+
+.speedBlock > i b {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-primary), var(--neon-secondary));
+  box-shadow: 0 0 7px var(--neon-primary);
+}
+
+.speedBlock > small {
+  color: var(--success);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.captureFeedback {
+  min-height: 9px;
+  color: var(--success);
+  text-align: center;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.portraitMessage,
+.mobileEmergency {
+  display: none;
+}
+
+@media (max-width: 1450px) {
+  .deck {
+    grid-template-columns: 170px minmax(460px, 1fr) 170px;
+    gap: 10px;
+    padding: 8px 18px;
+  }
+
+  .joystick {
+    width: 116px;
+    height: 116px;
+  }
+
+  .joystickCopy {
+    display: none;
+  }
+
+  .mediaRail {
+    grid-template-columns: 120px 1fr 1fr;
+  }
+
+  .mediaRail button {
+    padding: 4px;
+    font-size: 8px;
+  }
+
+  .mediaRail button i {
+    font-size: 17px;
+  }
+}
+
+@media (min-width:1181px) and (max-height:820px){
+  .deck{min-height:0;padding-top:5px;padding-bottom:5px}
+  .joystick{width:104px;height:104px}
+  .mediaRail button{min-height:38px}
+  .speedBlock button{height:38px}
+}
+
+@media (max-width: 1180px) and (orientation: landscape),
+  (max-width: 1400px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  .deck {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    display: block;
+    min-height: 0;
+    padding: 0;
+    pointer-events: none;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .joystickUnit {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    padding: 9px;
+    pointer-events: auto;
+    background: rgba(4, 12, 24, 0.58);
+    border: 1px solid rgba(var(--neon-primary-rgb), 0.25);
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+  }
+
+  .leftJoystick {
+    left: 28px;
+    right: auto;
+  }
+
+  .rightJoystick {
+    right: 28px;
+    left: auto;
+  }
+
+  .joystickCopy {
+    display: none;
+  }
+
+  .joystick {
+    width: clamp(105px, 28vh, 140px);
+    height: clamp(105px, 28vh, 140px);
+  }
+
+  .centerConsole {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    width: min(300px, 42vw);
+    max-width: none;
+    padding: 6px;
+    pointer-events: auto;
+    background: rgba(4, 12, 24, 0.72);
+    border: 1px solid rgba(var(--neon-primary-rgb), 0.28);
+    border-radius: 4px;
+    backdrop-filter: blur(7px);
+    transform: translateX(-50%);
+  }
+
+  .mediaRail {
+    display: none;
+  }
+
+  .mediaRail button {
+    min-height: 44px;
+  }
+
+  .speedBlock {
+    min-width: 0;
+    width: 100%;
+    padding: 4px 8px;
+  }
+
+  .speedBlock > div {
+    grid-row: auto;
+    grid-column: auto;
+    grid-template-columns: 44px minmax(66px,1fr) 44px;
+  }
+
+  .speedBlock>span,.speedBlock>i,.speedBlock>small{display:none}
+
+  .speedBlock button {
+    height: 44px;
+  }
+
+  .captureFeedback {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding: 4px 9px;
+    background: rgba(4, 12, 24, 0.78);
+    transform: translateX(-50%);
+  }
+
+  .mobileEmergency {
+    position: absolute;
+    z-index: 30;
+    bottom: 158px;
+    left: 28px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 0 12px;
+    pointer-events: auto;
+    color: #fff;
+    background: var(--critical-gradient);
+    border: 2px solid var(--neon-secondary);
+    box-shadow: 0 0 16px rgba(var(--neon-secondary-rgb), 0.45);
+    font-size: 9px;
+    font-weight: 800;
+  }
+
+  .mobileEmergency i {
+    font-style: normal;
+  }
+}
+
+@media (max-width:1180px) and (max-height:600px) and (orientation:landscape){
+  .centerConsole{display:none}
+  .joystickUnit{bottom:max(12px,env(safe-area-inset-bottom));padding:0;background:transparent;border:0;backdrop-filter:none}
+  .leftJoystick{left:max(18px,env(safe-area-inset-left))}
+  .rightJoystick{right:max(18px,env(safe-area-inset-right))}
+  .joystick{width:clamp(96px,29vh,124px);height:clamp(96px,29vh,124px);opacity:.68;background:radial-gradient(circle,rgba(24,48,75,.72) 0 12%,rgba(10,23,40,.56) 13% 43%,rgba(36,67,95,.68) 44% 47%,rgba(5,13,24,.45) 48%);box-shadow:inset 0 0 20px rgba(0,0,0,.72),0 0 16px rgba(var(--neon-primary-rgb),.18)}
+  .joystickActive{opacity:.94;box-shadow:inset 0 0 22px rgba(0,0,0,.78),0 0 24px rgba(var(--neon-primary-rgb),.5)}
+  .mobileEmergency{top:8px;right:max(54px,env(safe-area-inset-right));bottom:auto;left:auto;min-height:36px;padding:0 10px;border-width:1px;opacity:.82}
+}
+
+@media (max-width: 1100px) and (orientation: portrait) {
+  .deck {
+    display: none;
+  }
+
+  .deck .joystickUnit {
+    display: none;
+  }
+
+  .centerConsole {
+    width: 100%;
+    max-width: none;
+  }
+
+  .mediaRail {
+    grid-template-columns: 110px 1fr 1fr;
+  }
+
+  .speedBlock {
+    margin-top: 2px;
+  }
+
+  .portraitMessage {
+    display: grid;
+    justify-items: center;
+    gap: 5px;
+    padding: 14px;
+    color: var(--monitor-muted);
+    text-align: center;
+    background: rgba(var(--neon-primary-rgb), 0.055);
+    border: 1px solid rgba(var(--neon-primary-rgb), 0.3);
+  }
+
+  .portraitMessage i {
+    color: var(--neon-primary);
+    font-size: 26px;
+    font-style: normal;
+  }
+
+  .portraitMessage strong {
+    color: var(--monitor-text);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .portraitMessage span {
+    max-width: 330px;
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .mobileEmergency {
+    position: fixed;
+    z-index: 100;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 46px;
+    padding: 0 14px;
+    color: #fff;
+    background: var(--critical-gradient);
+    border: 3px solid var(--neon-secondary);
+    box-shadow: 0 0 18px rgba(var(--neon-secondary-rgb), 0.5);
+    font-size: 9px;
+    font-weight: 800;
+  }
+
+  .mobileEmergency i {
+    font-style: normal;
+  }
+}
+
+.compactJoystick{display:grid!important;justify-self:center!important;justify-items:center!important;gap:6px!important;text-align:center!important}
+.compactJoystick .joystickCopy{display:grid;order:2;gap:2px;text-align:center}
+.compactJoystick .joystickCopy strong{color:var(--text-muted);font-size:10px;font-weight:700;letter-spacing:.08em}
+.compactJoystick .joystickCopy small{display:none}
+.compactJoystick .joystick{width:var(--mobile-joystick-size);height:var(--mobile-joystick-size)}
+@media (max-width:390px) and (orientation:portrait){.compactJoystick .joystick{width:105px;height:105px}.compactJoystick .joystickCopy{position:static;padding:0;background:transparent;transform:none}.compactJoystick .joystickCopy strong{font-size:9px;white-space:nowrap}}
+
+@media (max-width: 430px) and (orientation: portrait) {
+  .mediaRail {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mediaRail > span {
+    grid-column: 1 / -1;
+    min-height: 40px;
+  }
+
+  .speedBlock {
+    padding: 8px;
+  }
+
+  .speedBlock > div {
+    grid-template-columns: 40px 70px 40px;
+  }
+
+  .portraitMessage {
+    padding: 12px 9px;
+  }
+}
+
+@media (max-width:1180px) {
+  :global(#go2-teleoperation-view:fullscreen) .deck {
+    position:absolute;
+    z-index:20;
+    inset:0;
+    display:block!important;
+    width:100%;
+    height:100%;
+    min-height:0;
+    padding:0;
+    pointer-events:none;
+    background:transparent;
+    border:0;
+    box-shadow:none;
+  }
+  :global(#go2-teleoperation-view:fullscreen) .centerConsole,
+  :global(#go2-teleoperation-view:fullscreen) .portraitMessage,
+  :global(#go2-teleoperation-view:fullscreen) .mobileEmergency {display:none!important}
+  :global(#go2-teleoperation-view:fullscreen) .joystickUnit {position:absolute;bottom:max(18px,env(safe-area-inset-bottom));display:flex!important;padding:0;pointer-events:auto;background:transparent;border:0;backdrop-filter:none}
+  :global(#go2-teleoperation-view:fullscreen) .leftJoystick {left:max(22px,env(safe-area-inset-left));right:auto}
+  :global(#go2-teleoperation-view:fullscreen) .rightJoystick {right:max(22px,env(safe-area-inset-right));left:auto}
+  :global(#go2-teleoperation-view:fullscreen) .joystickCopy {display:none!important}
+  :global(#go2-teleoperation-view:fullscreen) .joystick {width:clamp(100px,29vh,138px);height:clamp(100px,29vh,138px);opacity:.7}
+  :global(#go2-teleoperation-view:fullscreen) .joystickActive {opacity:.96}
+}

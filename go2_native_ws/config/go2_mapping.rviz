@@ -1,0 +1,145 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Mapa 3D acumulado1
+      Splitter Ratio: 0.52
+    Tree Height: 720
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.4
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 100; 108; 120
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grade métrica
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 30
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.32
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 3
+        Min Value: -1
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 117; 214; 255
+      Color Transformer: FlatColor
+      Decay Time: 0.4
+      Enabled: true
+      Name: Varredura atual
+      Position Transformer: XYZ
+      Queue Size: 8
+      Selectable: false
+      Size (Pixels): 2
+      Size (m): 0.025
+      Style: Flat Squares
+      Topic: /utlidar/cloud_deskewed
+      Unreliable: true
+      Use Fixed Frame: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 2.5
+        Min Value: -0.5
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 235; 125
+      Min Color: 40; 168; 255
+      Name: Mapa 3D acumulado
+      Position Transformer: XYZ
+      Queue Size: 2
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.04
+      Style: Flat Squares
+      Topic: /go2_slam/map_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Enabled: true
+      Keep: 400
+      Name: Trajetória do Go2
+      Position Tolerance: 0.05
+      Shape:
+        Alpha: 1
+        Axes Length: 0.35
+        Axes Radius: 0.04
+        Color: 255; 128; 64
+        Value: Arrow
+      Topic: /utlidar/robot_odom
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 12; 18; 28
+    Fixed Frame: odom
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 255; 196; 64
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 10
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.65
+      Target Frame: odom
+      Value: Orbit (rviz)
+      Yaw: 3.2
+    Saved: ~
+Window Geometry:
+  Height: 940
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Width: 1500
+  X: 40
+  Y: 40

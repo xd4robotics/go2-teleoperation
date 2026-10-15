@@ -1,0 +1,37 @@
+[Unit]
+Description=Go2 control bridge to Vercel/LiveKit
+Wants=network-online.target
+After=NetworkManager.service network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=unitree
+Group=unitree
+WorkingDirectory=/home/unitree/Downloads/oracle-go2-teleoperation-main
+Environment=HOME=/home/unitree
+Environment=PATH=/home/unitree/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=OPEN_BROWSER=0
+Environment=PYTHONUNBUFFERED=1
+Environment="GO2_UPLINK_CONNECTION=XD4 Local"
+Environment="GO2_UPLINK_SSID=xd4 main"
+Environment=GO2_FALLBACK_CONNECTION=Bianca
+Environment=GO2_FALLBACK_SSID=Bianca
+Environment=GO2_UPLINK_INTERFACE=wlan0
+Environment=GO2_ROBOT_INTERFACE=auto
+Environment=GO2_CONTROL_ONLY=1
+EnvironmentFile=-/etc/oracle-go2-teleoperation/network.env
+
+# Prefere o SSID XD4, usa Bianca como fallback e mantem a Ethernet do Go2.
+ExecStartPre=+/usr/bin/bash /home/unitree/Downloads/oracle-go2-teleoperation-main/scripts/prepare_uplink_network.sh
+ExecStart=/usr/bin/bash /home/unitree/Downloads/oracle-go2-teleoperation-main/run_vercel.sh
+
+# Se a internet ainda nao estiver pronta, run_vercel.sh encerra e o systemd tenta
+# novamente. Isso tambem recupera quedas do LiveKit sem intervencao manual.
+Restart=always
+RestartSec=10
+TimeoutStopSec=25
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

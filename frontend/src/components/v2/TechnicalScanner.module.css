@@ -1,0 +1,287 @@
+.scanner {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--scanner-text);
+  background:
+    radial-gradient(circle at 68% 55%, rgba(var(--neon-primary-rgb), 0.16), transparent 27%),
+    radial-gradient(circle at 14% 85%, rgba(var(--neon-secondary-rgb), 0.12), transparent 25%),
+    var(--scanner-background);
+  isolation: isolate;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.35;
+  background-image:
+    radial-gradient(circle, var(--neon-primary) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle, var(--neon-secondary) 0 1px, transparent 1.7px),
+    linear-gradient(rgba(var(--neon-primary-rgb), 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--neon-primary-rgb), 0.12) 1px, transparent 1px);
+  background-position: 0 0, 26px 26px, 0 0, 0 0;
+  background-size: 52px 52px;
+  filter: var(--neon-blue-glow);
+  transform: perspective(600px) rotateX(8deg) scale(1.1);
+  animation: gridShift 12s linear infinite;
+}
+
+.grid::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, transparent 49.8%, rgba(var(--neon-secondary-rgb), 0.42) 50%, transparent 50.2%);
+}
+
+.beam,
+.redBeam {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(180deg, transparent, rgba(var(--neon-primary-rgb), 0.1), rgba(var(--neon-primary-rgb), 0.72), transparent);
+  filter: var(--neon-blue-glow);
+  animation: scan 5.5s ease-in-out infinite alternate;
+}
+
+.redBeam {
+  width: 65%;
+  height: 70px;
+  opacity: 0.46;
+  background: linear-gradient(180deg, transparent, rgba(var(--neon-secondary-rgb), 0.08), rgba(var(--neon-secondary-rgb), 0.7), transparent);
+  filter: var(--neon-red-glow);
+  animation: scanBack 7s ease-in-out infinite alternate;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+.topline {
+  position: absolute;
+  top: 35px;
+  right: 40px;
+  left: 40px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--scanner-muted);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+.topline b {
+  color: var(--success);
+  font-size: 8px;
+}
+
+.topline i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 7px;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(var(--success-rgb), 0.9);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.copy {
+  position: absolute;
+  top: 16%;
+  left: 9%;
+  z-index: 2;
+  width: 67%;
+}
+
+.index {
+  color: var(--neon-primary);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+
+.copy h2 {
+  margin: 18px 0;
+  font-size: clamp(44px, 4.2vw, 75px);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.copy h2 em {
+  color: transparent;
+  font-style: normal;
+  background: linear-gradient(90deg, var(--neon-primary) 3%, var(--scanner-text) 48%, var(--neon-secondary) 92%);
+  background-clip: text;
+  filter: var(--neon-blue-glow);
+}
+
+.copy p {
+  max-width: 520px;
+  color: var(--scanner-muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.radar {
+  position: absolute;
+  top: 49%;
+  left: 55%;
+  width: 290px;
+  height: 290px;
+  transform: translate(-50%, -50%);
+}
+
+.radar > span {
+  position: absolute;
+  display: block;
+}
+
+.ringOne,
+.ringTwo {
+  inset: 0;
+  border: 1px solid rgba(var(--neon-primary-rgb), 0.25);
+  border-radius: 50%;
+  box-shadow: 0 0 35px rgba(var(--neon-primary-rgb), 0.1), inset 0 0 35px rgba(var(--neon-primary-rgb), 0.07);
+}
+
+.ringOne::before,
+.ringTwo::before {
+  position: absolute;
+  inset: 16%;
+  content: "";
+  border: 1px dashed rgba(var(--neon-secondary-rgb), 0.42);
+  border-radius: 50%;
+  animation: rotate 12s linear infinite;
+}
+
+.ringTwo {
+  inset: 27%;
+  border-color: rgba(var(--neon-primary-rgb), 0.58);
+}
+
+.crossX,
+.crossY {
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--neon-primary-rgb), 0.45), transparent);
+}
+
+.crossY {
+  transform: rotate(90deg);
+}
+
+.core {
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--scanner-text);
+  border: 3px solid var(--neon-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-primary), 0 0 34px var(--neon-primary);
+  transform: translate(-50%, -50%);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.orbit {
+  inset: 9%;
+  border-top: 2px solid var(--neon-secondary);
+  border-right: 2px solid transparent;
+  border-radius: 50%;
+  filter: var(--neon-red-glow);
+  animation: rotate 3.8s linear infinite;
+}
+
+.streams {
+  position: absolute;
+  right: 7%;
+  bottom: 8%;
+  left: 7%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.streams div {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 10px;
+  padding: 12px 14px;
+  background: var(--scanner-surface);
+  border: 1px solid rgba(var(--neon-primary-rgb), 0.2);
+  backdrop-filter: blur(7px);
+}
+
+.streams span {
+  color: var(--neon-secondary);
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.streams p {
+  margin: 0;
+  color: var(--scanner-muted);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.streams i {
+  grid-column: 1 / -1;
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--neon-primary), transparent);
+  animation: dataLine 2.3s ease-in-out infinite alternate;
+}
+
+.packet {
+  position: absolute;
+  right: 4%;
+  top: 41%;
+  display: grid;
+  gap: 2px;
+  color: var(--scanner-muted);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  transform: rotate(90deg);
+}
+
+.packet strong {
+  color: var(--neon-secondary);
+  font-size: 10px;
+}
+
+@keyframes scan {
+  from { top: -12%; }
+  to { top: 90%; }
+}
+
+@keyframes scanBack {
+  from { top: 95%; left: 35%; }
+  to { top: -5%; left: 0; }
+}
+
+@keyframes gridShift {
+  to { background-position: 0 104px, 104px 0; }
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+@keyframes dataLine {
+  to { width: 100%; filter: var(--neon-blue-glow); }
+}

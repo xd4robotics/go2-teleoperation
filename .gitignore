@@ -1,0 +1,52 @@
+# Históricos de dependências clonadas dentro do projeto
+**/.git/
+
+# Saídas recompiláveis do ROS, CMake e Python
+**/build/
+**/install/
+slam_ws/log/
+go2_native_ws/unitree_ros2/cyclonedds_ws/log/
+**/__pycache__/
+*.py[cod]
+*.o
+*.tmp
+
+# Arquivos temporários de editores e sistema
+*~
+.DS_Store
+.idea/
+.vscode/
+.agents/
+.codex/
+.venv*/
+]\*
+
+# Credenciais e ambientes locais da aplicação web
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+**/.venv/
+**/node_modules/
+**/dist/
+**/.pytest_cache/
+*.log
+diagnostics/go2_camera_frame.jpg
+docs/assets/
+**/doc/*.gif
+
+# Chaves/certificados de teste das cópias vendorizadas do CycloneDDS
+go2_native_ws/unitree_ros2/cyclonedds_ws/src/cyclonedds/src/security/**/etc/
+go2_native_ws/unitree_ros2/cyclonedds_ws/src/cyclonedds/src/security/**/*private_key*
+go2_native_ws/unitree_ros2/cyclonedds_ws/src/cyclonedds/src/security/**/priv.pem
+
+# Autosaves gerados ao encerrar o gateway do robô
+go2_native_ws/maps/autosave_*.json
+go2_native_ws/maps/autosave_*.pcd
+.vercel
+
+# Os modelos documentais devem permanecer no repositório
+!.env.example
+!**/.env.example

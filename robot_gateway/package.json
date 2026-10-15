@@ -1,0 +1,8 @@
+{
+  "name": "go2-audio-bridge",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@livekit/rtc-node": "0.13.31"
+  }
+}
